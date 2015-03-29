@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SAE Spring '15</title>
+  <meta charset="utf-8">
+
+  <style>
+
+  </style>
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <script>
+
+  var dispTime = function(date) {
+    date = new Date(date * 1000);
+    var d_names = new Array("Sun", "Mon", "Tue",
+    "Wed", "Thu", "Fri", "Sat");
+
+    var m_names = new Array("Jan", "Feb", "Mar",
+    "Apr", "May", "June", "July", "Aug", "Sep",
+    "Oct", "Nov", "Dec");
+
+    var day = d_names[date.getDay()];
+    var d = date.getDate();
+
+    var m = m_names[date.getMonth()];
+    var y = date.getFullYear();
+
+    var h = date.getHours();
+    var min = (date.getMinutes()<10 ? "0":"") + date.getMinutes();
+
+    if (h < 12) {
+      a_p = " AM";
+    } else {
+      a_p = " PM";
+    }
+
+    if (h == 0) {
+      h = 12;
+    }
+    if (h > 12) {
+      h = h - 12;
+    }
+
+
+    return day + ", " + m + " " + d + ", " + y + ", " + h + ":" + min + a_p
+  }
+
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Is it Late Night?</h1>
+    <hr>
+    <h1>Yes!</h1>
+  </div>
+</body>
+
+</html>
