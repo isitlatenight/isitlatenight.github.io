@@ -25,6 +25,8 @@
     top: 50%;
     left:50%;
     transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
   }
 
   .tooltip.top > .tooltip-inner {
@@ -66,20 +68,23 @@
     } else {
       $("#ln").append("Nope, not until Thursday :(");
     }
-  });
 
+    $("h1.animated").addClass("rubberBand");
+
+    //$ ("h1.animated").removeClass("hide");
+  });
   //#("#main").hover()
   $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
+    $('[data-toggle="tooltip"]').tooltip();
+  });
   </script>
 </head>
 
 <body>
   <div id="main" class="container vertical-center text-center">
-    <h1><a href="mailto:grant.mueller@yale.edu?subject=Is%20it%20Late%20Night%3F&amp;body=Hey%20Grant,%20is%20it%20late%20night%3F" data-toggle="tooltip" data-placement="top" title="Ask Grant Mueller!">Is it Late Night?</a></h1>
+    <h1 class="animated"><a href="mailto:grant.mueller@yale.edu?subject=Is%20it%20Late%20Night%3F&amp;body=Hey%20Grant,%20is%20it%20late%20night%3F" data-toggle="tooltip" data-placement="top" title="Ask Grant Mueller!">Is it Late Night?</a></h1>
     <hr>
-    <h1 id="ln"></h1>
+    <h1 class="animated" id="ln"></h1>
   </div>
 </body>
 
