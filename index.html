@@ -41,6 +41,8 @@
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
+  <link rel="stylesheet" href="animate.css">
+
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
@@ -69,11 +71,10 @@
       $("#ln").append("Nope, not until Thursday :(");
     }
 
-    $("h1.animated").addClass("rubberBand");
-
-    //$ ("h1.animated").removeClass("hide");
+    setTimeout( $("#h1.animated").addClass("rollIn"), 1000);
+    $("#ln.animated").addClass("bounce");
   });
-  //#("#main").hover()
+
   $(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
@@ -82,7 +83,7 @@
 
 <body>
   <div id="main" class="container vertical-center text-center">
-    <h1 class="animated"><a href="mailto:grant.mueller@yale.edu?subject=Is%20it%20Late%20Night%3F&amp;body=Hey%20Grant,%20is%20it%20late%20night%3F" data-toggle="tooltip" data-placement="top" title="Ask Grant Mueller!">Is it Late Night?</a></h1>
+    <h1 id="h1" class="animated"><a href="mailto:grant.mueller@yale.edu?subject=Is%20it%20Late%20Night%3F&amp;body=Hey%20Grant,%20is%20it%20late%20night%3F" data-toggle="tooltip" data-placement="top" title="Ask Grant Mueller!">Is it Late Night?</a></h1>
     <hr>
     <h1 class="animated" id="ln"></h1>
   </div>
