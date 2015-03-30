@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SAE Spring '15</title>
+  <title>Is it Late Night?</title>
   <meta charset="utf-8">
 
   <style>
+  html body {
+    background-color:#25177A;
+    color:#CE9D00;
+  }
+
+  .vertical-center {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+
+  .tooltip.top > .tooltip-inner {
+    background-color: #CE9D00;
+    color:#25177A;
+    font-size:9pt;
+  }
+
+  .tooltip.top > .tooltip-arrow { display:none; }
 
   </style>
   <!-- JQuery -->
@@ -21,49 +40,36 @@
 
   <script>
 
-  var dispTime = function(date) {
-    date = new Date(date * 1000);
-    var d_names = new Array("Sun", "Mon", "Tue",
-    "Wed", "Thu", "Fri", "Sat");
-
-    var m_names = new Array("Jan", "Feb", "Mar",
-    "Apr", "May", "June", "July", "Aug", "Sep",
-    "Oct", "Nov", "Dec");
-
-    var day = d_names[date.getDay()];
-    var d = date.getDate();
-
-    var m = m_names[date.getMonth()];
-    var y = date.getFullYear();
-
-    var h = date.getHours();
-    var min = (date.getMinutes()<10 ? "0":"") + date.getMinutes();
-
-    if (h < 12) {
-      a_p = " AM";
-    } else {
-      a_p = " PM";
-    }
-
-    if (h == 0) {
-      h = 12;
-    }
-    if (h > 12) {
-      h = h - 12;
-    }
-
-
-    return day + ", " + m + " " + d + ", " + y + ", " + h + ":" + min + a_p
+  /* is it thursday? */
+  var getLN = function(date) {
+    var ret;
+    s = ["See you at 1am, hot stuff ;)", "I <3 Grant Mueller", "Mia Khalifa is amazing!",
+    "WOOOOOOOOO", "TGIT", "IA", "I <3 SAE", "TURN UP!!"];
+    ret = {ln: (new Date().getDay() == 4), str:s[Math.floor(Math.random() * 8)]}
+    return ret;
   }
 
+  $(document).ready(function() {
+    var ln = getLN();
+    if (ln.ln) {
+      $("#ln").append("YES!!" + ln.str);
+    } else {
+      $("#ln").append("Nope, not until Thursday :(");
+    }
+  });
+
+  //#("#main").hover()
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
   </script>
 </head>
 
 <body>
-  <div class="container">
+  <div id="main" class="container vertical-center text-center" data-toggle="tooltip" data-placement="top" title="Go Grant Mueller!">
     <h1>Is it Late Night?</h1>
     <hr>
-    <h1>Yes!</h1>
+    <h1 id="ln"></h1>
   </div>
 </body>
 
