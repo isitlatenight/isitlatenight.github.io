@@ -13,6 +13,12 @@
   #ln {
     font-family: "Times New Roman", Times, serif;
     font-size:124pt;
+
+    display:none;
+  }
+
+  #ln.show {
+    display:block;
   }
 
   .vertical-center {
@@ -24,7 +30,6 @@
     -webkit-transform: translate(-50%,-50%);
   }
   /*
-
   .container a {
     color: #CE9D00;
     text-decoration: none;
@@ -48,16 +53,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
   <link rel="stylesheet" href="animate.css">
-
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
   <script>
 
   /* is it thursday? */
@@ -72,31 +67,28 @@
   $(document).ready(function() {
     var ln = getLN();
     if (ln.ln) {
-      $("#ln").append("Yes. " + ln.str);
+      $("#ln").append("Yes! " + ln.str);
     } else {
       $("#ln").append("No.");
     }
 
     setTimeout( function() {
+      $("#ln.animated").addClass("show");
       $("#ln.animated").addClass("fadeIn");
-      $("#ln.animated").removeClass("hide");
     }, 1000);
 
   });
 
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-  });
   </script>
 </head>
 
 <body>
-  <div id="main" class="container vertical-center text-center">
+  <div id="main" class="vertical-center">
     <!--
       <h1 id="h1" class="animated"><a href="mailto:grant.mueller@yale.edu?subject=Is%20it%20Late%20Night%3F&amp;body=Hey%20Grant,%20is%20it%20late%20night%3F" data-toggle="tooltip" data-placement="top" title="Ask Grant Mueller!">Is it Late Night?</a></h1>
       <hr>
     -->
-    <h1 class="animated hide" id="ln"></h1>
+    <h1 class="animated" id="ln"></h1>
   </div>
 </body>
 
