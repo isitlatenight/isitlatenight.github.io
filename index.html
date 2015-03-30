@@ -29,25 +29,6 @@
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
   }
-  /*
-  .container a {
-    color: #CE9D00;
-    text-decoration: none;
-  }
-
-  .container a:hover, .container a:focus {
-    color: #CE9D00;
-    text-decoration: none;
-  }
-
-
-  .tooltip.top > .tooltip-inner {
-    background-color: #CE9D00;
-    color:#25177A;
-    font-size:9pt;
-  }
-  .tooltip.top > .tooltip-arrow { display:none; }
-  */
   </style>
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -55,19 +36,10 @@
   <link rel="stylesheet" href="animate.css">
   <script>
 
-  /* is it thursday? */
-  var getLN = function(date) {
-    var ret;
-    s = ["See you at 1am, hot stuff ;)", "I <3 Grant Mueller", "Mia Khalifa is amazing!",
-    "WOOOOOOOOO", "TGIT", "IA", "I <3 SAE", "TURN UP!!"];
-    ret = {ln: (new Date().getDay() == 4), str:s[Math.floor(Math.random() * 8)]}
-    return ret;
-  }
-
   $(document).ready(function() {
     var ln = getLN();
-    if (ln.ln) {
-      $("#ln").append("Yes! " + ln.str);
+    if (new Date().getDay() == 4) {
+      $("#ln").append("Yes! ");
     } else {
       $("#ln").append("No.");
     }
@@ -84,12 +56,7 @@
 
 <body>
   <div id="main" class="vertical-center">
-    <!--
-      <h1 id="h1" class="animated"><a href="mailto:grant.mueller@yale.edu?subject=Is%20it%20Late%20Night%3F&amp;body=Hey%20Grant,%20is%20it%20late%20night%3F" data-toggle="tooltip" data-placement="top" title="Ask Grant Mueller!">Is it Late Night?</a></h1>
-      <hr>
-    -->
     <h1 class="animated" id="ln"></h1>
   </div>
 </body>
-
 </html>
