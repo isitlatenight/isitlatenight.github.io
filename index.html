@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Is it Late Night?</title>
-  <meta charset="utf-8">
+    <title>Is it Late Night?</title>
+    <meta charset="utf-8">
 
-  <style>
-  html body {
-    background-color:#25177A;
-    color:#CE9D00;
-  }
-
-  #ln {
-    font-family: "Times New Roman", Times, serif;
-    font-size:124pt;
-
-    display:none;
-  }
-
-  #ln.show {
-    display:block;
-  }
-
-  .vertical-center {
-    position: absolute;
-    top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    -webkit-transform: translate(-50%,-50%);
-  }
-  </style>
-  <!-- JQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-  <link rel="stylesheet" href="animate.css">
-  <script>
-
-  $(document).ready(function() {
-    if (new Date().getDay() == 4) {
-      $("#ln").append("Yes! ");
-    } else {
-      $("#ln").append("No.");
+    <style>
+    html body {
+        background-color:#25177A;
+        color:#CE9D00;
     }
 
-    setTimeout( function() {
-      $("#ln.animated").addClass("show");
-      $("#ln.animated").addClass("fadeIn");
-    }, 1000);
+    #ln {
+        font-family: "Times New Roman", Times, serif;
+        font-size:124pt;
 
-  });
+        display:none;
+    }
 
-  </script>
+    #ln.show {
+        display:block;
+    }
+
+    .vertical-center {
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+    }
+    </style>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="animate.css">
+    <script>
+
+    $(document).ready(function() {
+        d = new Date();
+        if (d.getDay() == 4 || (d.getDay() == 5 && d.getHours() < 3)) {
+            $("#ln").append("Yes! ");
+        } else {
+            $("#ln").append("No.");
+        }
+
+        setTimeout( function() {
+            $("#ln.animated").addClass("show");
+            $("#ln.animated").addClass("fadeIn");
+        }, 1000);
+    });
+
+    </script>
 </head>
 
 <body>
-  <div id="main" class="vertical-center">
-    <h1 class="animated" id="ln"></h1>
-  </div>
+    <div id="main" class="vertical-center">
+        <h1 class="animated" id="ln"></h1>
+    </div>
 </body>
 </html>
